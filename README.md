@@ -61,7 +61,45 @@ let validacionYTemplate = (tipoDePropiedad, numeroDeIteraciones, contenedorTempl
     } else {
       tipoDePropiedad[i].smoke = '<p class="text-success"><i class="fas fa-smoking"></i> Permitido fumar</p>'
     }
-...
+
+    if (tipoDePropiedad[i].pets === false) {
+      tipoDePropiedad[i].pets = '<p class="text-danger"><i class="fa-solid fa-ban"></i> No se permiten mascotas</p>'
+    } else {
+      tipoDePropiedad[i].pets = '<p class="text-success"><i class="fas fa-paw"></i> Mascotas permitidas</p>'
+    }
+
+    template += `
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img
+            src="${tipoDePropiedad[i].src}"
+            class="card-img-top"
+            alt="Imagen del departamento"
+          />
+          <div class="card-body">
+            <h5 class="card-title">
+              ${tipoDePropiedad[i].nombre}
+            </h5>
+            <p class="card-text">
+              ${tipoDePropiedad[i].descripcion}
+            </p>
+            <p>
+              <i class="fas fa-map-marker-alt"></i> ${tipoDePropiedad[i].ubicacion}
+            </p>
+            <p>
+              <i class="fas fa-bed"></i> ${tipoDePropiedad[i].habitaciones} Habitaciones |
+              <i class="fas fa-bath"></i> ${tipoDePropiedad[i].banos} Baños
+            </p>
+            <p><i class="fas fa-dollar-sign"></i> ${tipoDePropiedad[i].costo}</p>
+              ${tipoDePropiedad[i].smoke}
+              ${tipoDePropiedad[i].pets}
+          </div>
+        </div>
+      </div>
+    `;
+  }
+  contenedorTemplate.innerHTML = template
+}
 ```
 
 ## Limitación de Propiedades en la Página Principal ✋
