@@ -31,7 +31,7 @@ const propiedades_venta = [
 ...
 ```
 
-### Propiedades en Alquiler 💸
+### Propiedades en Alquiler 💳
 
 ```javascript
 const propiedades_alquiler = [
